@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Smart Fridge App</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom fonts for this template -->
+  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="vendor/simple-line-icons/css/simple-line-icons.css">
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet">
+
+  <!-- Plugin CSS -->
+  <link rel="stylesheet" href="device-mockups/device-mockups.min.css">
+
+  <!-- Custom styles for this template -->
+  <link href="css/new-age.min.css" rel="stylesheet">
+
+</head>
+
+<body id="page-top" onload="setTime(); scrollRecipes()">
+
+
+  <header class="masthead">
+    <div class="container h-100">
+      <div class="row h-100">
+        <div class="col-lg-7 my-auto">
+          <div class="header-content mx-auto">
+            <h1 class="time mb-5" style="font-size:70px">Welcome Jacob!</h1>
+            <h1 class="time mb-5" id="time" style="font-size:80px">The time</h1>
+          </div>
+        </div>
+        <div class="col-lg-5 my-auto">
+          <div class="container">
+            <h1 class="mb-5 trending-header" style="font-size:70px; margin-top: 10px; box-sizing: border-box">Trending &#128200;</h1>
+            <div class="pages">
+              <img src="img/smoothie.jpg" style="width: 40%"></img>
+              <br></br>
+              <q>Suggested: Fruit Smoothie</q>
+              <p><i>Popular with users with fruit</i></p>
+            </div>
+
+            <div class="pages">
+              <img src="img/cookies.jpg" style="width: 40%"></img>
+              <br></br>
+              <q>Suggested: Flourless Peanut Butter Cookies</q>
+              <p><i>Popular with users in college</i></p>
+            </div>
+
+            <div class="pages">
+              <img src="img/biscuit.jpg" style="width: 40%"></img>
+              <br></br>
+              <q>Suggested: Biscuits</q>
+              <p><i>Popular for breakfast</i></p>
+            </div>
+
+            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+            <a class="next" onclick="plusSlides(1)">&#10095;</a>
+          </div>
+
+          <div class="dot-container">
+            <span class="dot" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+            <span class="dot" onclick="currentSlide(3)"></span>
+          </div>
+
+          <div style="text-align: center;">
+            <a href="javascript:seeRecipe()" class="btn btn-outline btn-xl js-scroll-trigger" style="font-size:13px; left: 50%;">Check out the recipe!</a>
+          </div>
+        </div>
+
+        <div class="my-auto contact" style="width:100%; text-align: center;">
+            <ul class="list-inline list-social">
+              <a href="users.html" class="btn btn-outline btn-xl js-scroll-trigger" style="font-size:12px; left: 50%">Switch Users</a>
+              <a href="cart.html" class="btn btn-outline btn-xl js-scroll-trigger" style="font-size:12px; left: 50%">Check Cart</a>
+              <a href="inventory.html?Strawberries=2&Banana=1&Milk=1&Yogurt=1&Eggs=1&Cream=1" class="btn btn-outline btn-xl js-scroll-trigger" style="font-size:13px; left: 50%;">Check Inventory</a>
+            </ul>
+          </div>
+      </div>
+    </div>
+  </header>
+
+  <footer>
+    <div class="container">
+
+    </div>
+  </footer>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Plugin JavaScript -->
+  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+  <!-- Custom scripts for this template -->
+  <script src="js/new-age.min.js"></script>
+
+  <style>
+    .container {
+      margin: auto;
+      position: relative;
+      background:rgba(0,0,0,0.1);
+      opacity: 1;
+    }
+
+    .time {
+      margin-top: 60px;
+      margin-right: 50px;
+      font-size: 100px;
+    }
+
+    .trending-header {
+      text-align: center;
+    }
+
+    .pages {
+      display: none;
+      padding: 40px;
+      text-align: center;
+      background:rgba(0,0,0,0.4);
+      opacity: 1;
+    }
+
+    .next {
+      margin-right: 15px;
+    }
+
+    .prev, .next {
+      cursor: pointer;
+      position: absolute;
+      top: 50%;
+      width: auto;
+      margin-top: 30px;
+      padding: 3%;
+      color: #888;
+      font-weight: bold;
+      font-size: 20px;
+      border-radius: 0 3px 3px 0;
+      user-select: none;
+    }
+
+    .next {
+      position: absolute;
+      right: 0;
+      border-radius: 3px 0 0 3px;
+    }
+
+    .prev:hover, .next:hover {
+      background-color: rgba(0,0,0,0.8);
+      color: white;
+    }
+
+    .dot-container {
+      text-align: center;
+      padding: 20px;
+    }
+
+    .dot {
+      cursor: pointer;
+      height: 15px;
+      width: 15px;
+      margin: 0 2px;
+      background-color: #bbb;
+      border-radius: 50%;
+      display: inline-block;
+      transition: background-color 0.6s ease;
+    }
+
+    .active, .dot:hover {
+      background-color: #717171;
+    }
+  </style>
+
+  <script>
+    var index = 3;
+
+    showSlides(index);
+
+    function scrollRecipes() {
+      setTimeout(scrollRecipes, 4000);
+      index = (index + 1) % 3;
+      showSlides(index);
+    }
+
+    function showSlides(n) {
+      var i;
+      var slides = document.getElementsByClassName("pages");
+      var dots = document.getElementsByClassName("dot");
+
+      if (n > slides.length) {
+        index = 1;
+      }
+
+      if (n < 1) {
+        index = slides.length;
+      }
+
+      for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+      }
+
+      for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+      }
+
+      slides[index - 1].style.display = "block";
+      dots[index - 1].className += " active";
+    }
+
+    function plusSlides(n) {
+      showSlides(index += n);
+    }
+
+    function currentSlide(n) {
+      showSlides(index = n);
+    }
+
+    function setTime() {
+      var today = new Date();
+      var h = today.getHours();
+      var m = today.getMinutes();
+      var s = today.getSeconds();
+
+      if (h > 12) {
+        h = h - 12;
+      }
+
+      m = format(m);
+      s = format(s);
+      document.getElementById('time').innerHTML = h + ":" + m + ":" + s;
+      var t = setTimeout(setTime, 500);
+    }
+
+    function format(i) {
+      if (i < 10) {
+        i = "0" + i;
+      }
+
+      return i;
+    }
+
+    function seeRecipe() {
+      window.location = "recipe" + index + ".html"
+    }
+  </script>
+
+</body>
+
+</html>
