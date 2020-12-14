@@ -87,13 +87,13 @@
                         </div>
                         <div class="row">
                             <div class="col-sm-50">
-                                <table id="itemTable" class="table table-bordered table-condensed table-striped">
-                                    <thead>
+                                <table style="border: black" id="itemTable" class="table table-bordered table-condensed table-striped">
+                                    <thead style="border: black">
                                         <tr>
-                                            <th style="color:white">Edit</th>
-                                            <th style="color:white">Name</th>
-                                            <th style="color:white">Amount</th>
-                                            <th style="color:white">Delete</th>
+                                            <th style="color:black;border: black">Edit</th>
+                                            <th style="color:black;border: black">Name</th>
+                                            <th style="color:black;border: black">Amount</th>
+                                            <th style="color:black;border: black">Delete</th>
                                         </tr>
                                     </thead>
                                 </table>
@@ -118,7 +118,10 @@
                 </div>
 
                 <div style="text-align: right; padding-top:50%">
-                    <a href="index.html" class="btn btn-outline btn-xl js-scroll-trigger" style="font-size:13px; left: 50%;bottom: 0;">Return to Homepage</a>
+                    <a href="index.html" class="btn btn-outline btn-xl js-scroll-trigger" style="left: 50%;bottom: 0;">Return to Homepage</a>
+                </div>
+                <div style="text-align: right; padding-top:50%">
+                    <a href="index.html" class="btn btn-outline btn-xl js-scroll-trigger" style="left: 50%;bottom: 0;">Shopping List</a>
                 </div>
 
 
@@ -146,8 +149,8 @@
                                     "<button type='button' onclick='itemDisplay(this);' class='btn btn-dark'>" +
                                     "<span class=\"glyphicon glyphicon-edit\" />🖊️" +
                                     "</button>" +
-                                    "<td>" + key.fontcolor("white") + "</td>" +
-                                    "<td>" + strvalue.fontcolor("white") + "</td>" +
+                                    "<td>" + key.fontcolor("black") + "</td>" +
+                                    "<td>" + strvalue.fontcolor("black") + "</td>" +
                                     "<td>" +
                                     "<button type='button' onclick='itemDelete(this);' class='btn btn-dark'>" +
                                     "<span class='glyphicon glyphicon-remove' />❌" +
@@ -191,8 +194,8 @@
                                 "<button type='button' onclick='itemDisplay(this);' class='btn btn-dark'>" +
                                 "<span class=\"glyphicon glyphicon-edit\" />🖊️" +
                                 "</button>" +
-                                "<td>" + $("#addItem").val().fontcolor("white") + "</td>" +
-                                "<td>" + $("#amount").val().fontcolor("white") + "</td>" +
+                                "<td>" + $("#addItem").val().fontcolor("black") + "</td>" +
+                                "<td>" + $("#amount").val().fontcolor("black") + "</td>" +
                                 "<td>" +
                                 "<button type='button' onclick='itemDelete(this);' class='btn btn-dark'>" +
                                 "<span class='glyphicon glyphicon-remove' />❌" +
@@ -208,8 +211,8 @@
                                 "<span class='glyphicon glyphicon-edit' />🖊️" +
                                 "</button>" +
                                 "</td>" +
-                                "<td>" + $("#addItem").val().fontcolor("white") + "</td>" +
-                                "<td>" + $("#amount").val().fontcolor("white") + "</td>" +
+                                "<td>" + $("#addItem").val().fontcolor("black") + "</td>" +
+                                "<td>" + $("#amount").val().fontcolor("black") + "</td>" +
                                 "<td>" +
                                 "<button type='button' onclick='itemDelete(this);' class='btn btn-dark'>" +
                                 "<span class='glyphicon glyphicon-remove' />❌" +
@@ -272,7 +275,7 @@
                 </div>
                 <style>
                     .th {
-                        color: white
+                        color: black
                     }
 
                     .h1 {
